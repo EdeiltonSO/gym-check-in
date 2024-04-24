@@ -2,7 +2,7 @@
 
 ## O que é isso?
 
-É uma aplicação para chehck-in em academias, tipo o Gympass.
+É uma aplicação para check-in em academias, tipo o Gympass.
 
 ## Requisitos funcionais (RF)
 
@@ -32,3 +32,11 @@
 - [ ] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [ ] Todas listas de dados precisam estar paginadas com 20 itens por página;
 - [ ] O usuário dee ser identificado por um JWT;
+
+## Como executar o projeto?
+
+0. Tenha o Node.js instalado;
+1. Clone o projeto e acesse a pasta raiz;
+2. Copie o arquivo `.env.example`, renomeie para `.env` e edite;
+3. Execute `npm i`;
+4. Execute `npm run start:dev`;
