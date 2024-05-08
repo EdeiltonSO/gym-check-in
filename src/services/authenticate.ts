@@ -13,7 +13,7 @@ interface AuthenticateServiceResponse {
 }
 
 export class AuthenticateService {
-  constructor(private usersRepository: UsersRepository) { }
+  constructor(private usersRepository: UsersRepository) {}
 
   async execute({
     email,
