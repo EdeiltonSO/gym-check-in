@@ -7,7 +7,7 @@
 ## Requisitos funcionais (RF)
 
 - [x] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
+- [x] Deve ser possível se autenticar;
 - [ ] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível obter o número de check-ins realizados pelo usuário logado;
 - [ ] Deve ser possível o usuário obter seu histórico de check-ins;
@@ -15,7 +15,7 @@
 - [ ] Deve ser possível o usuário buscar academias pelo nome;
 - [ ] Deve ser possível o usuário realizar check-in em uma academia;
 - [ ] Deve ser possível validar o check-in de um usuário;
-- [ ] Deve ser possível cadastrar uma academia;
+- [ ] Deve ser possível cadastrar uma academia.
 
 ## Regras de negócio (RN)
 
@@ -24,14 +24,14 @@
 - [ ] O usuário não pode fazer check-in se não estier perto (100 metros) da academia;
 - [ ] O check-in só pode ser validado até 20 minutos após criado;
 - [ ] O check-in só pode ser validado por administradores;
-- [ ] A academia só pode ser cadastrada por administradores;
+- [ ] A academia só pode ser cadastrada por administradores.
 
 ## Requisitos não-funcionais (RNF)
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [ ] Todas listas de dados precisam estar paginadas com 20 itens por página;
-- [ ] O usuário dee ser identificado por um JWT;
+- [ ] O usuário deve ser identificado por um JWT.
 
 ## Como executar o projeto?
 
@@ -42,4 +42,6 @@
 4. Execute `npm i` para instalar as dependências da aplicação;
 5. Execute `docker compose up -d` para iniciar o serviço de banco de dados;
 6. Execute `npx prisma migrate dev` para aplicar as migrations ao banco;
-7. Execute `npm run start:dev` para rodar a aplicação;
+7. Execute `npm run start:dev` para rodar a aplicação.
+
+Outros scripts podem ser conferidos no arquivo `package.json`.
