@@ -11,7 +11,7 @@ interface GetUserProfileServiceResponse {
 }
 
 export class GetUserProfileService {
-  constructor(private usersRepository: UsersRepository) { }
+  constructor(private usersRepository: UsersRepository) {}
 
   async execute({
     userId,
