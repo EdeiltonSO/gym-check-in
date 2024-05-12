@@ -11,7 +11,7 @@ interface SearchGymsServiceResponse {
 }
 
 export class SearchGymsService {
-  constructor(private gymsRepository: GymsRepository) { }
+  constructor(private gymsRepository: GymsRepository) {}
 
   async execute({
     query,
