@@ -21,7 +21,7 @@ export class CheckInService {
   constructor(
     private checkInsRepository: CheckInsRepository,
     private gymsRepository: GymsRepository,
-  ) { }
+  ) {}
 
   async execute({
     userId,
