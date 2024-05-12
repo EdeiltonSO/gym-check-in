@@ -7,9 +7,9 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
   public items: CheckIn[] = []
 
   async findById(id: string) {
-    const checkin = this.items.find((item) => item.id === id)
+    const checkIn = this.items.find((item) => item.id === id)
 
-    return !checkin ? null : checkin
+    return !checkIn ? null : checkIn
   }
 
   async findByUserIdOnDate(userId: string, date: Date) {
@@ -49,5 +49,15 @@ export class InMemoryCheckInsRepository implements CheckInsRepository {
     this.items.push(checkin)
 
     return checkin
+  }
+
+  async save(checkIn: CheckIn) {
+    const checkInIndex = this.items.findIndex((item) => item.id === checkIn.id)
+
+    if (checkInIndex >= 0) {
+      this.items[checkInIndex] = checkIn
+    }
+
+    return checkIn
   }
 }
