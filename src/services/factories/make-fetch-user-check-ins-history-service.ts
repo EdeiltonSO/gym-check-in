@@ -1,9 +1,9 @@
-import { ValidateCheckInService } from '../validate-check-in'
 import { PrismaCheckInsRepository } from '@/repositories/prisma/prisma-check-ins-repository'
+import { FetchUserCheckInsHistoryService } from '../fetch-user-check-ins-history'
 
-export function makeValidateCheckInService() {
-  const prismaCheckInsRepository = new PrismaCheckInsRepository()
-  const service = new ValidateCheckInService(prismaCheckInsRepository)
+export function makeFetchUserCheckInsHistoryService() {
+  const checkInsRepository = new PrismaCheckInsRepository()
+  const useCase = new FetchUserCheckInsHistoryService(checkInsRepository)
 
-  return service
+  return useCase
 }
