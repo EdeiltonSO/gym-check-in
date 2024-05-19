@@ -1,14 +1,42 @@
+import { PrismaClient } from '@prisma/client'
+import 'dotenv/config'
+import { execSync } from 'node:child_process'
+import { randomUUID } from 'node:crypto'
 import { Environment } from 'vitest'
+
+const prisma = new PrismaClient()
+
+function generateDatabaseURL(schema: string) {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('Please provide a DATABASE_URL environment variable.')
+  }
+
+  const url = new URL(process.env.DATABASE_URL)
+
+  url.searchParams.set('schema', schema)
+
+  return url.toString()
+}
 
 export default <Environment>{
   name: 'prisma',
   transformMode: 'ssr', // ssr pra back-end e web pra frfont-end
   async setup() {
-    console.log('executado antes de cada suite de teste')
+    const schema = randomUUID()
+    // console.log(generateDatabaseURL(schema))
+
+    const databaseURL = generateDatabaseURL(schema)
+
+    process.env.DATABASE_URL = databaseURL
+
+    execSync('npx prisma migrate deploy')
 
     return {
-      teardown() {
-        console.log('executado depois de cada suite de teste')
+      async teardown() {
+        await prisma.$executeRawUnsafe(
+          `DROP SCHEMA IF EXISTS "${schema}" CASCADE`,
+        )
+        await prisma.$disconnect()
       },
     }
   },
