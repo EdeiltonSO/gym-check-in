@@ -11,7 +11,7 @@ interface FetchUserCheckInHistoryServiceResponse {
 }
 
 export class FetchUserCheckInsHistoryService {
-  constructor(private checkInsRepository: CheckInsRepository) { }
+  constructor(private checkInsRepository: CheckInsRepository) {}
 
   async execute({
     userId,
