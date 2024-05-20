@@ -23,15 +23,15 @@
 - [x] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [x] O usuário não pode fazer check-in se não estiver perto (100 metros) da academia;
 - [x] O check-in só pode ser validado até 20 minutos após criado;
-- [ ] O check-in só pode ser validado por administradores;
-- [ ] A academia só pode ser cadastrada por administradores.
+- [x] O check-in só pode ser validado por administradores;
+- [x] A academia só pode ser cadastrada por administradores.
 
 ## Requisitos não-funcionais (RNF)
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados da aplicação precisam estar persistidos em um banco PostgreSQL;
 - [x] Todas listas de dados precisam estar paginadas com 20 itens por página;
-- [ ] O usuário deve ser identificado por um JWT.
+- [x] O usuário deve ser identificado por um JWT.
 
 ## Como executar o projeto?
 
@@ -44,4 +44,16 @@
 6. Execute `npx prisma migrate dev` para aplicar as migrations ao banco;
 7. Execute `npm run start:dev` para rodar a aplicação.
 
-Outros scripts podem ser conferidos no arquivo `package.json`.
+## Como executar os testes?
+
+### Testes unitários
+
+- `npm run test` para executar uma vez;
+- `npm run test:watch` para manter o monitoramento;
+
+### Testes E2E
+
+- `npm run test:e2e` para executar uma vez;
+- `npm run test:e2e:watch` para manter o monitoramento;
+
+Também é possível acessar uma interface para o banco de dados executando o Prisma Studio com o comando `npx prisma studio`.
